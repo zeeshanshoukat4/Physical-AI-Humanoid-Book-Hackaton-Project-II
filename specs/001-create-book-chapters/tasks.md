@@ -46,7 +46,7 @@
 
 ## Phase N: Polish & Cross-Cutting Concerns
 
-- [ ] T014 [P] Add the floating chatbot button. This can be done by "swizzling" the root layout component and adding a custom fixed-position component.
+- [X] T014 [P] Add the floating chatbot button. This can be done by "swizzling" the root layout component and adding a custom fixed-position component.
 - [ ] T015 Review the entire site for responsiveness on mobile, tablet, and desktop viewports.
 - [ ] T016 Run a Lighthouse audit to check for performance and accessibility, aiming for scores of >= 90.
 - [ ] T017 Implement a proper 404 page by creating a `src/pages/404.js` file.

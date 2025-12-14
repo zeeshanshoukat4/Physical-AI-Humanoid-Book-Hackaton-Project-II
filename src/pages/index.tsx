@@ -1,11 +1,11 @@
 import React from 'react';
-import Layout from '@theme/Layout';
+import LayoutWrapper from '@site/src/components/LayoutWrapper';
 import Link from '@docusaurus/Link'; // Import Link component
 import useBaseUrl from '@docusaurus/useBaseUrl'; // Import useBaseUrl
 
 export default function Home() {
   return (
-    <Layout
+    <LayoutWrapper
       title="Physical AI & Humanoid Robotics"
       description="A comprehensive guide to Physical AI and Humanoid Robotics.">
       <header
@@ -34,6 +34,6 @@ export default function Home() {
           Start Reading
         </Link>
       </header>
-    </Layout>
+    </LayoutWrapper>
   );
 }
