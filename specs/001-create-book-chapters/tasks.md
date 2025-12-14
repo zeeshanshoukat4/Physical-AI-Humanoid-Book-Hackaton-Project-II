@@ -7,8 +7,8 @@
 
 **Purpose**: Set up the Docusaurus project foundation.
 
-- [ ] T001 Initialize a new Docusaurus 'classic' project in the repository.
-- [ ] T002 [P] Clean up the default Docusaurus content (blog, default docs, default homepage) that is not needed for the book website.
+- [X] T001 Initialize a new Docusaurus 'classic' project in the repository.
+- [X] T002 [P] Clean up the default Docusaurus content (blog, default docs, default homepage) that is not needed for the book website.
 
 ---
 
