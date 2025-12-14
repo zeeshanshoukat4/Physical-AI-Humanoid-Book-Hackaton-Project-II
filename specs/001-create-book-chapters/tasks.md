@@ -38,9 +38,9 @@
 
 **Purpose**: Add content to the chapters and enable Docusaurus features.
 
-- [ ] T011 [P] Populate the content for `01-introduction.mdx` with 2-3 pages of text and example code, using Markdown and MDX features.
-- [ ] T012 [P] Populate the content for the remaining 9 chapters.
-- [ ] T013 [US3] Verify that the default collapsible sidebar categories and the collapsible sections in the main content area are working as expected. Docusaurus provides this functionality out-of-the-box. Add a note to `quickstart.md` about how to structure markdown headings to use this feature.
+- [X] T011 [P] Populate the content for `01-introduction.mdx` with 2-3 pages of text and example code, using Markdown and MDX features.
+- [X] T012 [P] Populate the content for the remaining 9 chapters.
+- [X] T013 [US3] Verify that the default collapsible sidebar categories and the collapsible sections in the main content area are working as expected. Docusaurus provides this functionality out-of-the-box. Add a note to `quickstart.md` about how to structure markdown headings to use this feature.
 
 ---
 

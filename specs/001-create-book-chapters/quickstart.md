@@ -15,7 +15,8 @@ This document provides a brief guide to getting started with the new components 
   order: 11
   ---
   ```
-- **Content**: Add chapter content in Markdown format directly below the frontmatter.
+- **Content**: Add chapter content in Markdown format directly below the frontmatter. Use standard Markdown headings (`##`, `###`, etc.) to structure sections within a chapter. Docusaurus will automatically generate a Table of Contents based on these headings, which provides in-content navigation. The sidebar will also provide collapsible categories if you group documents using `_category_.json` or explicit sidebar items.
+
 
 ## 2. Key Components
 

@@ -5,5 +5,69 @@ sidebar_position: 3
 
 # 3. Sensor Systems: LIDAR, Cameras, IMUs
 
-This is a placeholder chapter for Sensor Systems: LIDAR, Cameras, IMUs.
-More content will be added here later.
+Robots interact with the world through a sophisticated array of sensors. This chapter delves into the most common types: LIDAR, cameras, and Inertial Measurement Units (IMUs), and how they contribute to a robot's perception of its environment.
+
+## LIDAR (Light Detection and Ranging)
+
+LIDAR systems emit pulsed laser light and measure the time it takes for the light to return, creating precise 3D maps of the surroundings. They are crucial for navigation, mapping, and obstacle avoidance.
+
+## Cameras
+
+Cameras provide rich visual information, enabling object recognition, scene understanding, and human-robot interaction. Different types of cameras (monocular, stereo, depth) offer varied capabilities.
+
+## IMUs (Inertial Measurement Units)
+
+IMUs measure a robot's orientation, angular velocity, and linear acceleration. They typically combine accelerometers, gyroscopes, and sometimes magnetometers. IMUs are vital for robot stabilization, dead reckoning, and state estimation.
+
+## Sensor Fusion Concept
+
+Combining data from multiple sensors (sensor fusion) provides a more robust and comprehensive understanding of the environment than any single sensor could achieve alone. For example, LIDAR provides depth, cameras provide color, and IMUs provide motion.
+
+## Simple IMU Data Simulation
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+class IMUSimulator:
+    def __init__(self, noise_level=0.01):
+        self.orientation = np.array([0.0, 0.0, 0.0]) # Roll, Pitch, Yaw
+        self.angular_velocity = np.array([0.0, 0.0, 0.0]) # Rad/s
+        self.acceleration = np.array([0.0, 0.0, 9.81]) # m/s^2 (gravity)
+        self.noise_level = noise_level
+
+    def update(self, dt=0.01):
+        # Simulate some movement (e.g., rotation around Z-axis)
+        self.angular_velocity[2] = 0.1 * np.sin(time.time())
+        # Simulate some linear acceleration
+        self.acceleration[0] = 0.5 * np.cos(time.time() * 0.5)
+
+        # Add noise
+        self.angular_velocity += np.random.normal(0, self.noise_level, 3)
+        self.acceleration += np.random.normal(0, self.noise_level * 2, 3)
+
+        # Integrate angular velocity to update orientation (simplified)
+        self.orientation += self.angular_velocity * dt
+
+        return {
+            "orientation": self.orientation.copy(),
+            "angular_velocity": self.angular_velocity.copy(),
+            "acceleration": self.acceleration.copy()
+        }
+
+if __name__ == "__main__":
+    import time
+    imu = IMUSimulator()
+    data_points = []
+    for _ in range(100):
+        data_points.append(imu.update())
+        time.sleep(0.01)
+
+    # Example: Plotting yaw (orientation[2])
+    yaw = [dp["orientation"][2] for dp in data_points]
+    plt.plot(yaw)
+    plt.title("Simulated Yaw Orientation Over Time")
+    plt.xlabel("Time Step")
+    plt.ylabel("Yaw (radians)")
+    plt.show()
+```

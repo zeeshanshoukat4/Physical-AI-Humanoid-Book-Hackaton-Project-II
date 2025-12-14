@@ -5,5 +5,71 @@ sidebar_position: 2
 
 # 2. Foundations of Embodied Intelligence
 
-This is a placeholder chapter for Foundations of Embodied Intelligence.
-More content will be added here later.
+This chapter explores the fundamental concepts behind embodied intelligence. Embodied AI posits that intelligence emerges from the interaction of a physical body with its environment. Key areas include sensory-motor coordination, proprioception, and the role of morphology in cognitive processes.
+
+## From Disembodied to Embodied AI
+
+Historically, AI focused on symbolic reasoning and disembodied computation. However, a growing understanding suggests that many aspects of intelligence, such as common sense and intuitive physics, are deeply rooted in physical experiences.
+
+## Core Principles
+
+*   **Perception-Action Loop**: Continuous feedback between sensing and acting.
+*   **Affordances**: How the environment offers possibilities for action to an embodied agent.
+*   **Sensorimotor Synergies**: Coordinated control of multiple sensors and actuators.
+
+## Simple Perception-Action Loop
+
+Here's a simplified conceptual example of a perception-action loop for a robot avoiding obstacles.
+
+```python
+class Robot:
+    def __init__(self, sensors, actuators):
+        self.sensors = sensors
+        self.actuators = actuators
+        self.speed = 1.0
+
+    def perceive(self):
+        # Simulate obstacle detection (e.g., from a distance sensor)
+        obstacle_distance = self.sensors.read_distance()
+        return obstacle_distance
+
+    def decide_action(self, obstacle_distance):
+        if obstacle_distance < 0.5: # Obstacle too close
+            print("Obstacle detected! Changing direction.")
+            return "turn_left"
+        else:
+            return "move_forward"
+
+    def execute_action(self, action):
+        if action == "move_forward":
+            self.actuators.set_speed(self.speed)
+            print(f"Moving forward at {self.speed} m/s.")
+        elif action == "turn_left":
+            self.actuators.set_angular_speed(0.5) # Turn left
+            time.sleep(1) # Simulate turning
+            self.actuators.set_angular_speed(0)
+            self.actuators.set_speed(self.speed)
+            print("Turned left and resumed forward motion.")
+
+# Conceptual Sensor/Actuator classes
+class MockSensors:
+    def read_distance(self):
+        # Simulate varying distances
+        import random
+        return random.uniform(0.3, 2.0)
+
+class MockActuators:
+    def set_speed(self, speed):
+        pass
+    def set_angular_speed(self, speed):
+        pass
+
+if __name__ == "__main__":
+    import time
+    robot = Robot(MockSensors(), MockActuators())
+    for _ in range(5):
+        distance = robot.perceive()
+        action = robot.decide_action(distance)
+        robot.execute_action(action)
+        time.sleep(0.5)
+```

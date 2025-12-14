@@ -5,5 +5,86 @@ sidebar_position: 5
 
 # 5. Robot Simulation with Gazebo & Unity
 
-This is a placeholder chapter for Robot Simulation with Gazebo & Unity.
-More content will be added here later.
+Robot simulation is a critical tool in robotics development, allowing engineers to test algorithms, design robots, and develop control strategies in a safe, cost-effective, and reproducible virtual environment. This chapter explores two popular simulation platforms: Gazebo and Unity.
+
+## Gazebo
+
+Gazebo is a powerful open-source 3D robot simulator. It accurately simulates rigid body dynamics, sensors (cameras, LIDAR, force sensors), and provides a robust physics engine. It integrates seamlessly with ROS 2, making it a go-to choice for academic and research robotics.
+
+## Unity
+
+Unity is a versatile real-time 3D development platform primarily known for game development, but increasingly used in robotics. Its powerful rendering capabilities, asset store, and C# scripting make it suitable for simulating complex environments and human-robot interaction, especially for visually rich scenarios.
+
+## Why Simulate?
+
+*   **Safety**: Test hazardous scenarios without risk to physical hardware or humans.
+*   **Cost-Effectiveness**: Reduce hardware damage and development costs.
+*   **Reproducibility**: Easily reset and rerun experiments.
+*   **Acceleration**: Test algorithms faster than on real hardware.
+
+## Conceptual Simulation Loop (Simplified)
+
+```python
+class Simulator:
+    def __init__(self, robot_model, environment_model):
+        self.robot = robot_model
+        self.environment = environment_model
+        self.time = 0.0
+        self.dt = 0.01 # Time step
+
+    def update(self):
+        # 1. Sense: Get sensor data from simulated environment
+        sensor_data = self.robot.sense(self.environment)
+        
+        # 2. Plan: Robot decides next action based on sensor data
+        command = self.robot.plan(sensor_data)
+        
+        # 3. Act: Robot executes action in simulated environment
+        self.robot.act(command, self.environment, self.dt)
+        
+        # Update simulation time
+        self.time += self.dt
+
+    def run(self, duration):
+        while self.time < duration:
+            self.update()
+            # print(f"Sim Time: {self.time:.2f}")
+
+# Mock Robot and Environment for conceptual simulation
+class MockRobot:
+    def sense(self, env):
+        # Simulate reading from environment
+        return {"distance": env.get_obstacle_distance()}
+    
+    def plan(self, sensor_data):
+        if sensor_data["distance"] < 1.0:
+            return {"action": "turn"}
+        else:
+            return {"action": "move_forward"}
+
+    def act(self, command, env, dt):
+        if command["action"] == "turn":
+            # Simulate turning
+            pass
+        elif command["action"] == "move_forward":
+            # Simulate moving
+            pass
+        env.update_robot_position(self, command["action"], dt)
+
+class MockEnvironment:
+    def __init__(self):
+        self.obstacle_distance = 10.0 # Initial distance
+    def get_obstacle_distance(self):
+        # Simulate obstacle moving closer
+        self.obstacle_distance = max(0.5, self.obstacle_distance - 0.1)
+        return self.obstacle_distance
+    def update_robot_position(self, robot, action, dt):
+        pass
+
+if __name__ == "__main__":
+    robot = MockRobot()
+    environment = MockEnvironment()
+    simulator = Simulator(robot, environment)
+    simulator.run(5.0) # Run simulation for 5 seconds
+    print("Simulation finished.")
+```

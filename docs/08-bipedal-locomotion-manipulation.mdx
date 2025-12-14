@@ -5,5 +5,72 @@ sidebar_position: 8
 
 # 8. Bipedal Locomotion & Manipulation
 
-This is a placeholder chapter for Bipedal Locomotion & Manipulation.
-More content will be added here later.
+This chapter focuses on two of the most challenging aspects of humanoid robotics: bipedal locomotion (walking) and complex manipulation (object handling). These abilities are crucial for robots to operate effectively in human-centric environments.
+
+## Bipedal Locomotion
+
+Walking on two legs is energetically efficient and allows navigation in environments designed for humans (stairs, narrow doorways). However, it's inherently unstable. Key challenges include:
+
+*   **Balance Control**: Maintaining stability against gravity and external disturbances.
+*   **Gait Generation**: Creating smooth, natural, and efficient walking patterns.
+*   **Footstep Planning**: Deciding where to place feet to avoid obstacles and maintain stability.
+
+## Manipulation
+
+Robot manipulation involves grasping, moving, and interacting with objects. It requires precise control, robust perception, and often force sensing.
+
+*   **Grasping**: Selecting grasp points and applying appropriate forces.
+*   **Dexterity**: The ability to perform complex, fine-grained movements.
+*   **Contact rich tasks**: Tasks involving multiple points of contact or pushing/sliding.
+
+## Simplified Zero Moment Point (ZMP) Concept
+
+The Zero Moment Point (ZMP) is a common concept used in bipedal locomotion to maintain dynamic balance. The ZMP is the point on the ground about which the sum of all moments of active forces is zero. Keeping the ZMP within the support polygon (area under the feet) is critical for stable walking.
+
+## Conceptual Balance Control
+
+```python
+class BipedalRobotController:
+    def __init__(self, zmp_threshold=0.05):
+        self.zmp_threshold = zmp_threshold
+        self.current_zmp = (0.0, 0.0) # Assume 2D for simplicity
+        self.support_polygon_x = [-0.1, 0.1] # Simple rectangular support polygon
+        self.support_polygon_y = [-0.1, 0.1]
+
+    def measure_zmp(self):
+        # In a real robot, this would come from force/torque sensors
+        # Simulate some ZMP fluctuation
+        import random
+        self.current_zmp = (random.uniform(-0.1, 0.1), random.uniform(-0.1, 0.1))
+        return self.current_zmp
+
+    def is_balanced(self, zmp):
+        # Check if ZMP is within the support polygon
+        if (self.support_polygon_x[0] < zmp[0] < self.support_polygon_x[1] and
+            self.support_polygon_y[0] < zmp[1] < self.support_polygon_y[1]):
+            return True
+        return False
+
+    def adjust_balance(self, zmp):
+        if not self.is_balanced(zmp):
+            print(f"ZMP ({zmp[0]:.2f}, {zmp[1]:.2f}) out of bounds. Adjusting balance...")
+            # Simulate a corrective action (e.g., shift weight, adjust foot placement)
+            if zmp[0] < self.support_polygon_x[0]:
+                print("Shifting weight forward.")
+            elif zmp[0] > self.support_polygon_x[1]:
+                print("Shifting weight backward.")
+            # ... more complex adjustments
+            return True
+        return False
+
+if __name__ == "__main__":
+    controller = BipedalRobotController()
+    print("Simulating balance control over 10 steps:")
+    for i in range(10):
+        zmp_reading = controller.measure_zmp()
+        if controller.adjust_balance(zmp_reading):
+            print(f"Step {i+1}: Balance adjusted.")
+        else:
+            print(f"Step {i+1}: Robot is balanced (ZMP: {zmp_reading[0]:.2f}, {zmp_reading[1]:.2f}).")
+        time.sleep(0.5)
+```
