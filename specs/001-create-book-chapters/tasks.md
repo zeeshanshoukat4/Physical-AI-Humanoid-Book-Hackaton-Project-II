@@ -16,9 +16,9 @@
 
 **Purpose**: Configure the site and create the structure for the book's content.
 
-- [ ] T003 Configure `docusaurus.config.js` with the book's title ("Physical AI & Humanoid Robotics"), tagline, and other metadata.
-- [ ] T004 [P] Create the 10 placeholder chapter files as `.mdx` inside the `docs/` directory (e.g., `01-introduction.mdx`, `02-foundations.mdx`, etc.). Populate them with their titles and basic placeholder text.
-- [ ] T005 [US1] Create `sidebars.js` to define the exact order of the 10 chapters, ensuring they are listed correctly in the navigation.
+- [X] T003 Configure `docusaurus.config.js` with the book's title ("Physical AI & Humanoid Robotics"), tagline, and other metadata.
+- [X] T004 [P] Create the 10 placeholder chapter files as `.mdx` inside the `docs/` directory (e.g., `01-introduction.mdx`, `02-foundations.mdx`, etc.). Populate them with their titles and basic placeholder text.
+- [X] T005 [US1] Create `sidebars.js` to define the exact order of the 10 chapters, ensuring they are listed correctly in the navigation.
 
 ---
 
