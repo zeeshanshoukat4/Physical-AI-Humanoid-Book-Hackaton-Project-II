@@ -14,16 +14,16 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  */
 const sidebars: SidebarsConfig = {
   bookSidebar: [
-    '01-introduction-to-physical-ai',
-    '02-foundations-of-embodied-intelligence',
-    '03-sensor-systems',
-    '04-ros-2-fundamentals',
-    '05-robot-simulation',
-    '06-nvidia-isaac-platform',
-    '07-humanoid-robot-kinematics-dynamics',
-    '08-bipedal-locomotion-manipulation',
-    '09-natural-human-robot-interaction',
-    '10-conversational-robotics-gpt-integration',
+    'introduction-to-physical-ai',
+    'foundations-of-embodied-intelligence',
+    'sensor-systems',
+    'ros-2-fundamentals',
+    'robot-simulation',
+    'nvidia-isaac-platform',
+    'humanoid-robot-kinematics-dynamics',
+    'bipedal-locomotion-manipulation',
+    'natural-human-robot-interaction',
+    'conversational-robotics-gpt-integration',
   ],
 };
 
