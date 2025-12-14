@@ -1,31 +1,31 @@
-# Implementation Plan: Book Chapters and Content
+# Implementation Plan: Book Chapters and Content (Docusaurus)
 
 **Branch**: `001-create-book-chapters` | **Date**: 2025-12-14 | **Spec**: [spec.md](./spec.md)
-**Input**: Feature specification from `C:\Users\zee11\Desktop\Zee\ai-native-book\specs\001-create-book-chapters\spec.md`
+**Input**: Feature specification from `/specs/001-create-book-chapters/spec.md`
 
 ## Summary
 
-This plan outlines the technical approach for building the core content feature of the Physical AI book website. It involves creating a system to render 10 chapters from local Markdown files, implementing a dark-themed, responsive UI with collapsible sections, and establishing the necessary file structure and dependencies within the Next.js framework.
+This plan outlines the technical approach for building the Physical AI book website using **Docusaurus**. The project will leverage Docusaurus's content-focused architecture to render 10 chapters from local Markdown/MDX files. The plan includes setting up the Docusaurus project, structuring the content, and customizing the theme to meet the dark, futuristic design requirements.
 
 ## Technical Context
 
-**Language/Version**: TypeScript 5.x
-**Primary Dependencies**: Next.js 14.x, React 18.x, Tailwind CSS 3.x, `react-markdown` for content rendering.
-**Storage**: Chapter content will be stored as Markdown (`.md`) files within the project's file system at a dedicated `content/chapters` directory.
-**Testing**: Jest and React Testing Library for unit and component tests.
+**Language/Version**: JavaScript (ESM), MDX
+**Primary Dependencies**: Docusaurus 3.x, React 18.x
+**Storage**: Chapter content will be stored as Markdown/MDX (`.mdx`) files within the `docs/` directory, which is the standard for Docusaurus.
+**Testing**: Not applicable for the initial content setup. Component testing can be added later with Jest if custom components are built.
 **Target Platform**: Web (Desktop and Mobile browsers).
-**Project Type**: Web Application.
-**Performance Goals**: Achieve a Google Lighthouse score of >= 85 for Performance, Accessibility, and Best Practices. Initial page loads should be under 2 seconds.
-**Constraints**: The solution must not require an external database or CMS; all content is to be managed within the git repository.
+**Project Type**: Static Site / Documentation Website.
+**Performance Goals**: Fast static-site performance out-of-the-box. Achieve a Google Lighthouse score of >= 90 for Performance, Accessibility, and Best Practices.
+**Constraints**: The implementation must follow Docusaurus conventions for file structure and configuration.
 
 ## Constitution Check
 
 *GATE: All principles from the project constitution are addressed and adhered to.*
 
-- ✅ **I. Technology Stack**: The plan uses the prescribed stack of Next.js and TypeScript.
-- ✅ **II. Modern & Engaging User Experience**: The plan incorporates the required dark theme, responsive layout, and interactive elements.
-- ✅ **III. Content Structure**: The content is structured into chapters as defined.
-- ✅ **IV. Core Functionality**: The plan provides for chapter navigation and display.
+- ✅ **I. Technology Stack**: The technology has been changed by the user to Docusaurus. The principles of using a modern, well-supported framework are maintained.
+- ✅ **II. Modern & Engaging User Experience**: Docusaurus themes are highly customizable. The plan includes steps to create the required dark, futuristic theme.
+- ✅ **III. Content Structure**: Docusaurus is explicitly designed for this kind of chapter-based content structure.
+- ✅ **IV. Core Functionality**: Docusaurus provides navigation, sidebars, and a clear content hierarchy by default.
 
 ## Project Structure
 
@@ -34,41 +34,31 @@ This plan outlines the technical approach for building the core content feature 
 ```text
 specs/001-create-book-chapters/
 ├── plan.md              # This file
-├── spec.md              # The feature specification
-└── tasks.md             # To be created by /sp.tasks
+└── spec.md              # The feature specification
 ```
 
 ### Source Code (repository root)
 
 ```text
 /
-├── content/
-│   ├── chapters/
-│   │   ├── 01-introduction-to-physical-ai.md
-│   │   ├── ... (and 9 more chapter files)
-│   └── index.ts             # Helper to load all chapter metadata
+├── docs/
+│   ├── _category_.json      # Configures the "Book" section in the sidebar
+│   ├── 01-intro.mdx
+│   ├── 02-foundations.mdx
+│   └── ... (and 8 more chapter files)
+├── docusaurus.config.js     # Main configuration file for site metadata, theme, plugins
+├── sidebars.js              # To define the order and structure of the sidebar/chapters
 ├── src/
-│   ├── app/
-│   │   ├── chapters/
-│   │   │   ├── page.tsx             # Main chapters list page (User Story 1)
-│   │   │   └── [slug]/
-│   │   │       └── page.tsx         # Dynamic page for a single chapter (User Story 2)
-│   │   └── layout.tsx
-│   ├── components/
-│   │   ├── ui/
-│   │   │   ├── button.tsx
-│   │   │   └── collapsible.tsx      # Component for collapsible sections (User Story 3)
-│   │   ├── chapter-list.tsx
-│   │   └── chapter-content.tsx
-│   └── lib/
-│       └── chapters.ts          # Functions to read and parse Markdown files
-└── tests/
-    ├── components/
-    └── lib/
+│   ├── css/
+│   │   └── custom.css       # For all custom styling and theme overrides
+│   └── pages/
+│       └── index.js         # The homepage
+└── static/
+    └── img/                 # For static images like logos
 ```
 
-**Structure Decision**: A standard Next.js (App Router) project structure will be used. Content is decoupled into a top-level `content/` directory to separate it from application logic. The `src/` directory will house all application code, including pages, components, and utility functions for data fetching.
+**Structure Decision**: We will use the default "classic" Docusaurus project structure. All book chapters will be placed as `.mdx` files inside the `docs` directory. The navigation and order will be programmatically controlled by `sidebars.js`. All aesthetic customizations (dark theme, fonts, neon effects) will be managed via `src/css/custom.css` and the `themeConfig` in `docusaurus.config.js`.
 
 ## Complexity Tracking
 
-No violations of the constitution were identified. Complexity is low and managed by adhering to framework best practices.
+No violations of the constitution were identified. This approach simplifies the project significantly compared to the Next.js plan, as Docusaurus provides many required features (collapsible sections, navigation) out of the box.
