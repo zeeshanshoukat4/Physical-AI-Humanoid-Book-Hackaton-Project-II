@@ -26,11 +26,11 @@
 
 **Purpose**: Implement the visual design requirements from the specification.
 
-- [ ] T006 [P] In `docusaurus.config.js`, set the default theme to 'dark'.
-- [ ] T007 Modify `src/css/custom.css` to implement the dark, futuristic theme with neon accents for key elements like links, headers, and code blocks.
-- [ ] T008 [P] Research and add a futuristic font (e.g., from Google Fonts) to the project via `custom.css`.
-- [ ] T009 [P] Style the interactive buttons and other elements to match the theme in `custom.css`.
-- [ ] T010 Customize the main homepage at `src/pages/index.js` to include the title, subtitle, and a "Start Reading" button that links to the first chapter.
+- [X] T006 [P] In `docusaurus.config.js`, set the default theme to 'dark'.
+- [X] T007 Modify `src/css/custom.css` to implement the dark, futuristic theme with neon accents for key elements like links, headers, and code blocks.
+- [X] T008 [P] Research and add a futuristic font (e.g., from Google Fonts) to the project via `custom.css`.
+- [X] T009 [P] Style the interactive buttons and other elements to match the theme in `custom.css`.
+- [X] T010 Customize the main homepage at `src/pages/index.js` to include the title, subtitle, and a "Start Reading" button that links to the first chapter.
 
 ---
 
