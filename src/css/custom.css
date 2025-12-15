@@ -57,7 +57,7 @@ a:hover {
 }
 
 html[data-theme='light'] {
-  background-image: url('/img/IT.JPG');
+  background-image: url('/img/IT.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
