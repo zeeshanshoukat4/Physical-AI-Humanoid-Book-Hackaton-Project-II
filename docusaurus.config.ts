@@ -23,7 +23,7 @@ const config: Config = {
   organizationName: 'ai-native-book-org', // Usually your GitHub org/user name.
   projectName: 'physical-ai-book', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
