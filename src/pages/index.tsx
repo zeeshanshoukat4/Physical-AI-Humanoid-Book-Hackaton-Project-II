@@ -20,19 +20,30 @@ export default function Home() {
           backgroundPosition: 'center',
           color: 'white',
           textAlign: 'center',
-          textShadow: '0 0 10px rgba(0,255,118,0.8), 0 0 20px rgba(0,255,118,0.6)',
         }}>
-        <h1 style={{ fontSize: '3.5rem', marginBottom: '1rem', textShadow: '0 0 15px rgba(0,255,118,0.9), 0 0 25px rgba(0,255,118,0.7)' }}>
+        <h1 style={{ 
+            fontSize: '3.5rem', 
+            marginBottom: '1rem', 
+            color: '#1a1a1a',
+            textShadow: '0 0 10px #C58AF9, 0 0 20px #C58AF9, 0 0 30px #F0D5F5, 0 0 40px #F0D5F5, 0 0 50px #B7A0C7, 0 0 60px #B7A0C7, 0 0 70px #B7A0C7' 
+          }}>
           Physical AI & Humanoid Robotics
         </h1>
-        <p style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>
+        <p style={{ 
+            fontSize: '1.5rem', 
+            marginBottom: '2rem',
+            color: '#1a1a1a',
+            textShadow: '0 0 5px #C58AF9, 0 0 10px #C58AF9, 0 0 15px #F0D5F5, 0 0 20px #F0D5F5, 0 0 25px #B7A0C7, 0 0 30px #B7A0C7, 0 0 35px #B7A0C7'
+          }}>
           Your journey into embodied intelligence begins here.
         </p>
-        <Link
-          className="button button--secondary button--lg"
-          to={useBaseUrl('/docs/01-introduction-to-physical-ai')}>
-          Start Reading
-        </Link>
+      <Link
+  className="button button--secondary button--lg"
+  to={useBaseUrl('/docs/intro')}>
+  Start Reading
+</Link>
+
+
       </header>
     </LayoutWrapper>
   );

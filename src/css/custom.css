@@ -1,77 +1,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;700&display=swap');
 
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
+/* Global font */
 :root {
-  --ifm-font-family-base: 'Oxanium', sans-serif; /* Set Oxanium as base font */
-  --ifm-color-primary: #00e676; /* Neon Green */
-  --ifm-color-primary-dark: #00c853;
-  --ifm-color-primary-darker: #00b047;
-  --ifm-color-primary-darkest: #00933c;
-  --ifm-color-primary-light: #33ff99;
-  --ifm-color-primary-lighter: #66ffbb;
-  --ifm-color-primary-lightest: #99ffdd;
+  --ifm-font-family-base: 'Oxanium', sans-serif;
 
-  --ifm-color-secondary: #ea00ff; /* Neon Purple */
-  --ifm-color-secondary-dark: #d500f9;
-  --ifm-color-secondary-darker: #aa00ff;
+  /* Background & Base Text */
+  --ifm-background-color: #ffffff; /* Dark background for neon contrast */
+  --ifm-font-color-base: #050202; /* Light text for readability */
 
-  --ifm-background-color: #1a1a1a; /* Very Dark Gray */
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  /* Neon Primary Colors */
+  --ifm-color-primary: #7a27a1; /* Neon Cyan */
+  --ifm-color-primary-dark: #c8effd;
+  --ifm-color-primary-darker: #933ecf;
+  --ifm-color-primary-light: #301ed4;
+  --ifm-color-primary-lighter: #1d24a4;
+
+  /* Neon Secondary Colors */
+  --ifm-color-secondary: #250e25; /* Neon Magenta */
+  --ifm-color-secondary-dark: #341434;
+  --ifm-color-secondary-darker: #3c183c;
+  --ifm-color-secondary-light: #401e40;
+  --ifm-color-secondary-lighter: #521b52;
+
+  /* Code block */
+  --ifm-code-font-size: 100%;
+  --docusaurus-highlighted-code-line-bg: rgba(191, 182, 190, 0.1);
 }
 
-html[data-theme='dark'] {
-  --ifm-background-color: #0d0d0d; /* Even darker background */
-  --ifm-font-color-base: #e0e0e0; /* Light gray text for contrast */
-  --ifm-code-background: #1c1c1c; /* Dark code background */
-
-  /* Neon Primary */
-  --ifm-color-primary: #00e676;
-  --ifm-color-primary-dark: #00c853;
-  --ifm-color-primary-darker: #00b047;
-  --ifm-color-primary-darkest: #00933c;
-  --ifm-color-primary-light: #33ff99;
-  --ifm-color-primary-lighter: #66ffbb;
-  --ifm-color-primary-lightest: #99ffdd;
-
-  /* Neon Secondary */
-  --ifm-color-secondary: #ea00ff;
-  --ifm-color-secondary-dark: #d500f9;
-  --ifm-color-secondary-darker: #aa00ff;
-
-  /* Text Shadow for Neon Effect */
-  h1, h2, h3, h4, h5, h6 {
-    text-shadow: 0 0 5px var(--ifm-color-primary), 0 0 10px var(--ifm-color-primary);
-  }
-  a {
-    color: var(--ifm-color-secondary);
-    text-shadow: 0 0 3px var(--ifm-color-secondary);
-  }
-  a:hover {
-    color: var(--ifm-color-secondary-light);
-    text-shadow: 0 0 8px var(--ifm-color-secondary-light);
-  }
-
-  /* Button Styling */
-  .button {
-    background-color: var(--ifm-background-color);
-    color: var(--ifm-color-primary);
-    border: 1px solid var(--ifm-color-primary);
-    box-shadow: 0 0 5px var(--ifm-color-primary);
-    transition: all 0.3s ease-in-out;
-  }
-
-  .button:hover {
-    color: var(--ifm-color-secondary);
-    border-color: var(--ifm-color-secondary);
-    box-shadow: 0 0 10px var(--ifm-color-secondary);
-    transform: translateY(-2px);
-  }
+/* Links */
+a {
+  color: var(--ifm-color-secondary);
+  transition: all 0.3s ease-in-out;
 }
 
+a:hover {
+  color: var(--ifm-color-secondary-light);
+  text-shadow: 0 0 8px var(--ifm-color-secondary);
+}
+
+/* Buttons */
+.button {
+  background-color: var(--ifm-color-primary);
+  color: #f0f0f0;
+  border: 1px solid var(--ifm-color-primary);
+  box-shadow: 0 0 10px var(--ifm-color-primary);
+  transition: all 0.3s ease-in-out;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.button:hover {
+  background-color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+  box-shadow: 0 0 15px var(--ifm-color-primary-dark);
+  transform: translateY(-2px);
+}
+
+html[data-theme='light'] {
+  background-image: url('/img/IT.JPG');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

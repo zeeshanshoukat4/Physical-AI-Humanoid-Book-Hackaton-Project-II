@@ -66,9 +66,8 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
-      defaultMode: 'dark', // Set default mode to dark
-      disableSwitch: false, // Allow users to switch themes
-      respectPrefersColorScheme: true,
+      defaultMode: 'light', // Set default mode to light
+      disableSwitch: true, // Allow users to switch themes
     },
     navbar: {
       title: 'Physical AI Book',
@@ -91,7 +90,7 @@ const config: Config = {
       ],
     },
     footer: {
-      style: 'dark',
+      style: 'light',
       links: [
         {
           title: 'Book',
@@ -115,8 +114,7 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} Physical AI Book. Built with Docusaurus.`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: prismThemes.vsDark,
     },
   } satisfies Preset.ThemeConfig,
 };

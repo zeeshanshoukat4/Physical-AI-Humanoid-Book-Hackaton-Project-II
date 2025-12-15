@@ -14,7 +14,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  */
 const sidebars: SidebarsConfig = {
   bookSidebar: [
-    'introduction-to-physical-ai',
+    'intro',
     'foundations-of-embodied-intelligence',
     'sensor-systems',
     'ros-2-fundamentals',
