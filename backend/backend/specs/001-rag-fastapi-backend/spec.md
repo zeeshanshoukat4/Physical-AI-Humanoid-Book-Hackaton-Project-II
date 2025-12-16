@@ -55,9 +55,9 @@ As a system administrator, I want to store book metadata and a log of user queri
 ### Edge Cases
 
 -   What happens when the Cohere API is unavailable or returns an error during embedding? The system should return a clear error message.
--   How does the system handle very long text chunks for embedding? [NEEDS CLARIFICATION: Is there a maximum text size? Should the system truncate or reject long texts?]
+-   How does the system handle very long text chunks for embedding? The system MUST reject text chunks larger than a predefined token limit (e.g., 512 tokens) and return an error. The client is responsible for appropriately chunking the text.
 -   What happens if the Qdrant database is unavailable? The system should return a service unavailable error.
--   How are different books or versions of books managed in the Qdrant collection? [NEEDS CLARIFICATION: Should each book have its own collection, or should they be distinguished by metadata within a single collection?]
+-   How are different books or versions of books managed in the Qdrant collection? Different books and versions of books MUST be managed within a single Qdrant collection by filtering based on `book_id` and `version` metadata fields associated with each embedded text chunk.
 
 ## Requirements *(mandatory)*
 
