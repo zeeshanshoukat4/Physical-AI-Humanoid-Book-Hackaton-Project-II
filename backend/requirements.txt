@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pydantic
+pydantic-settings
+python-dotenv
+cohere
+qdrant-client
+psycopg2-binary

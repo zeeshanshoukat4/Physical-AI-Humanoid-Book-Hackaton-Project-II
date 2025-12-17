@@ -1,0 +1,41 @@
+# ruff.toml
+# Ruff configuration for the FastAPI backend
+
+# The maximum line length.
+line-length = 120
+
+# Enable Ruff's aggressive autofix for all enabled rules.
+fix = true
+
+# The minimum Python version to target.
+target-version = "py311"
+
+# Enable all rules by default.
+select = [
+    "E",  # Error
+    "F",  # Flake8
+    "W",  # Warning
+    "I",  # isort
+    "N",  # pep8-naming
+    "D",  # pydocstyle (optional, can be removed if specific docstring style is not required yet)
+    "UP", # pyupgrade
+    "C4", # flake8-comprehensions
+    "B",  # flake8-bugbear
+    "A",  # flake8-builtins
+    "SIM",# flake8-simplify
+    "PTH",# flake8-use-pathlib
+    "RUF",# ruff-specific rules
+]
+
+# Exclude files and directories from linting.
+exclude = [
+    ".venv",
+    "venv",
+    "__pycache__",
+    "docs",
+    "build",
+    "dist",
+]
+
+[per-file-ignores]
+"__init__.py" = ["F401"] # Ignore unused imports in __init__.py files
